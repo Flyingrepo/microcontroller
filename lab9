@@ -1,0 +1,11 @@
+	AREA PGM1,CODE,READONLY
+ENTRY
+	MRS R0,CPSR
+	BIC R0,R0,#0x40          ;use first #0x80 next #0x40  next #0x60
+	MSR CPSR_c,R0     
+	;disabling
+	MRS R0,CPSR
+	ORR R0,R0,#0x40          ;use first #0x80 next #0x40  next #0x60
+	MSR CPSR_c,R0
+	BX LR
+	END
